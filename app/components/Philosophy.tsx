@@ -3,6 +3,25 @@
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
+// Update this whenever something changes — the "feel alive" trick
+const LAST_UPDATED = "2026-05-07";
+
+const NOW_ITEMS: { cmd: string; title: string; body?: string }[] = [
+  {
+    cmd: "$ building",
+    title: "a custom python game engine",
+    body: "pygame is obsolete and the alternatives are too niche for regular programmers. so i'm writing one.",
+  },
+  {
+    cmd: "$ learning",
+    title: "rust · kubernetes",
+  },
+  {
+    cmd: "$ last shipped",
+    title: "venvsnap (early 2026)",
+  },
+];
+
 const STATS = [
   { value: "4", label: "years self-taught", note: "no bootcamps, no degrees" },
   { value: "3", label: "open source projects", note: "small, but mine" },
@@ -11,46 +30,65 @@ const STATS = [
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="relative py-32 px-6">
+    <section id="now" className="relative py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           index="04"
-          title="Philosophy"
-          caption="why i do this"
+          title="/now"
+          caption="what's on my desk this week"
         />
 
-        <motion.blockquote
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative glass-amber rounded-3xl p-10 md:p-16 overflow-hidden"
+          transition={{ duration: 0.7 }}
+          className="glass rounded-2xl overflow-hidden"
         >
-          <div className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-amber-glow/10 blur-3xl" />
-          <div className="absolute -bottom-20 -right-10 w-72 h-72 rounded-full bg-indigo-500/10 blur-3xl" />
-
-          <div className="relative">
-            <div className="font-mono text-amber-glow text-7xl leading-none mb-6 select-none">
-              "
-            </div>
-            <p className="text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.3] text-balance text-bone">
-              I don't learn to put things on a resume.
-              <br className="hidden md:block" />
-              <span className="text-bone/70">
-                {" "}
-                I learn because I want to build the next thing —
-              </span>{" "}
-              <span className="text-amber-glow">
-                and building it teaches me more than any course ever could.
-              </span>
-            </p>
-
-            <div className="mt-10 flex items-center gap-3 font-mono text-[12px] text-muted">
-              <span className="inline-block w-8 h-px bg-amber-glow/60" />
-              <span>oscar — somewhere in brooklyn, ~3am</span>
-            </div>
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-bone/5 bg-ink-950/40">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-glow/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70" />
+            <span className="ml-3 font-mono text-[11px] text-muted">
+              ~/now — last updated {LAST_UPDATED}
+            </span>
           </div>
-        </motion.blockquote>
+
+          <ol className="font-mono">
+            {NOW_ITEMS.map((it, i) => (
+              <motion.li
+                key={it.cmd}
+                initial={{ opacity: 0, x: -8 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="px-6 py-5 border-b border-bone/5 last:border-b-0 grid grid-cols-1 sm:grid-cols-[8rem_1fr] gap-1 sm:gap-4 hover:bg-amber-glow/[0.03] transition-colors"
+              >
+                <div className="text-amber-glow/85 text-[13px] shrink-0">
+                  {it.cmd}
+                </div>
+                <div>
+                  <div className="text-bone text-[15px]">{it.title}</div>
+                  {it.body && (
+                    <div className="text-muted text-[12.5px] mt-1 leading-relaxed sans">
+                      {it.body}
+                    </div>
+                  )}
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+
+          <div className="px-6 py-3 border-t border-bone/5 bg-ink-950/40 font-mono text-[11px] text-muted flex items-center justify-between">
+            <span>
+              <span className="text-amber-glow">$</span> ls ~/this-week
+            </span>
+            <span>
+              {NOW_ITEMS.length} entries{" "}
+              <span className="text-bone/30">·</span> stale by design
+            </span>
+          </div>
+        </motion.div>
 
         <div className="mt-10 grid sm:grid-cols-3 gap-4">
           {STATS.map((s, i) => (
