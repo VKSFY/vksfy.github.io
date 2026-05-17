@@ -10,10 +10,20 @@ type Project = {
   tech: string[];
   status: "active" | "shipped";
   href: string;
-  accent: "amber" | "indigo";
+  accent: "amber" | "indigo" | "violet";
 };
 
 const PROJECTS: Project[] = [
+  {
+    name: "vigil",
+    blurb:
+      "A from-scratch antivirus for Windows. ML-based PE analysis, rule scanners for scripts and docs, real-time filesystem + process monitoring, quarantine, and a local dashboard.",
+    why: "Wanted to see if a kid with a laptop could train a real malware classifier on the same dataset commercial vendors use. With EMBER 2018 and LightGBM the PE pipeline hits 97.51% accuracy at 2% FPR. So I built the rest of the antivirus around it.",
+    tech: ["Python", "LightGBM", "EMBER 2018", "olevba", "pdfminer"],
+    status: "shipped",
+    href: "https://github.com/VKSFY/vigil",
+    accent: "violet",
+  },
   {
     name: "venvsnap",
     blurb:
@@ -66,17 +76,21 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         aria-hidden="true"
       >
         <div
-          className={`absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full blur-3xl ${
+          className={`absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full blur-3xl animate-float ${
             p.accent === "amber"
               ? "bg-amber-glow/15"
-              : "bg-indigo-500/15"
-          } animate-float`}
+              : p.accent === "indigo"
+              ? "bg-indigo-500/15"
+              : "bg-violet-500/15"
+          }`}
         />
         <div
           className={`absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full blur-3xl ${
             p.accent === "amber"
               ? "bg-orange-500/10"
-              : "bg-blue-500/10"
+              : p.accent === "indigo"
+              ? "bg-blue-500/10"
+              : "bg-fuchsia-500/10"
           }`}
           style={{ animationDelay: "1.5s" }}
         />
@@ -155,7 +169,7 @@ export default function Projects() {
           caption="things i've built / am building"
         />
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((p, i) => (
             <ProjectCard key={p.name} p={p} index={i} />
           ))}

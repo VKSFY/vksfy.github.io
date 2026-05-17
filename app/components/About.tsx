@@ -33,16 +33,23 @@ const TIMELINE: Commit[] = [
   },
   {
     hash: "f2c8a17",
-    date: "2025",
-    title: "feat: multi-source-reconciliation-engine",
+    date: "2026",
+    title: "release: multi-source-reconciliation-engine",
     body: "Backend engine for reconciling data across multiple sources. First real infra-shaped problem I tried to solve.",
     tag: "open-source",
   },
   {
     hash: "d09f7b3",
-    date: "early 2026",
+    date: "2026",
     title: "release: venvsnap",
     body: "Snapshots a venv into a lockfile and restores from a local cache. First library I shipped that other people could actually use.",
+    tag: "open-source",
+  },
+  {
+    hash: "a91d3f7",
+    date: "2026",
+    title: "release: vigil",
+    body: "AI-trained antivirus for Windows. PE classifier hits 97.5% accuracy on EMBER 2018. Built the whole detection + quarantine pipeline around it.",
     tag: "open-source",
   },
   {
@@ -113,7 +120,7 @@ export default function About() {
                 <div className="text-muted uppercase tracking-wider mb-1">
                   shipped
                 </div>
-                <div className="text-bone">3 oss · ∞ wip</div>
+                <div className="text-bone">4 oss · ∞ wip</div>
               </div>
             </div>
           </motion.div>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
 // Update this whenever something changes — the "feel alive" trick
-const LAST_UPDATED = "2026-05-07";
+const LAST_UPDATED = "2026-05-17";
 
 const NOW_ITEMS: { cmd: string; title: string; body?: string }[] = [
   {
@@ -16,15 +16,11 @@ const NOW_ITEMS: { cmd: string; title: string; body?: string }[] = [
     cmd: "$ learning",
     title: "rust · kubernetes",
   },
-  {
-    cmd: "$ last shipped",
-    title: "venvsnap (early 2026)",
-  },
 ];
 
 const STATS = [
   { value: "4", label: "years self-taught", note: "no bootcamps, no degrees" },
-  { value: "3", label: "open source projects", note: "small, but mine" },
+  { value: "4", label: "open source projects", note: "small, but mine" },
   { value: "∞", label: "small builds", note: "the ones that taught me everything" },
 ];
 
