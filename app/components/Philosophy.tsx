@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
 // Update this whenever something changes — the "feel alive" trick
-const LAST_UPDATED = "2026-05-17";
+const LAST_UPDATED = "2026-06-02";
 
 const NOW_ITEMS: { cmd: string; title: string; body?: string }[] = [
   {
-    cmd: "$ building",
-    title: "a custom python game engine",
-    body: "pygame is obsolete and the alternatives are too niche for regular programmers. so i'm writing one.",
+    cmd: "$ next",
+    title: "between builds",
+    body: "just shipped keel. scoping the next thing.",
   },
   {
     cmd: "$ learning",
@@ -20,7 +20,7 @@ const NOW_ITEMS: { cmd: string; title: string; body?: string }[] = [
 
 const STATS = [
   { value: "4", label: "years self-taught", note: "no bootcamps, no degrees" },
-  { value: "4", label: "open source projects", note: "small, but mine" },
+  { value: "5", label: "open source projects", note: "small, but mine" },
   { value: "∞", label: "small builds", note: "the ones that taught me everything" },
 ];
 

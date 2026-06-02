@@ -10,10 +10,18 @@ type Project = {
   tech: string[];
   status: "active" | "shipped";
   href: string;
-  accent: "amber" | "indigo" | "violet";
 };
 
 const PROJECTS: Project[] = [
+  {
+    name: "keel",
+    blurb:
+      "A Python game engine built on archetype ECS, ModernGL, and GLFW. 2D + 3D rendering, physics, text, audio, hot reload, and an ImGui inspector and profiler.",
+    why: "Pygame is old and bound to CPU blits. Panda3D wraps a C++ engine. Most other Python game libraries either stop at hobby scope or quietly stop being maintained. I wanted a real, data-oriented ECS as the core data model, in Python, with hot paths pushed down to numpy and C extensions. 451 tests, on PyPI as keelpy.",
+    tech: ["Python", "ModernGL", "ECS", "GLFW", "pymunk"],
+    status: "shipped",
+    href: "https://github.com/VKSFY/keel",
+  },
   {
     name: "vigil",
     blurb:
@@ -22,7 +30,6 @@ const PROJECTS: Project[] = [
     tech: ["Python", "LightGBM", "EMBER 2018", "olevba", "pdfminer"],
     status: "shipped",
     href: "https://github.com/VKSFY/vigil",
-    accent: "violet",
   },
   {
     name: "venvsnap",
@@ -32,7 +39,6 @@ const PROJECTS: Project[] = [
     tech: ["Python", "click", "wheels", "tomli", "pytest"],
     status: "shipped",
     href: "https://github.com/VKSFY/venvsnap",
-    accent: "amber",
   },
   {
     name: "multi-source-reconciliation-engine",
@@ -42,7 +48,6 @@ const PROJECTS: Project[] = [
     tech: ["Python", "asyncio", "Postgres", "pydantic", "Redis"],
     status: "shipped",
     href: "https://github.com/VKSFY/multi-source-reconciliation-engine",
-    accent: "indigo",
   },
 ];
 
@@ -75,23 +80,9 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         className="absolute inset-0 opacity-30 group-hover:opacity-60 transition-opacity duration-700"
         aria-hidden="true"
       >
+        <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full blur-3xl bg-amber-glow/15 animate-float" />
         <div
-          className={`absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full blur-3xl animate-float ${
-            p.accent === "amber"
-              ? "bg-amber-glow/15"
-              : p.accent === "indigo"
-              ? "bg-indigo-500/15"
-              : "bg-violet-500/15"
-          }`}
-        />
-        <div
-          className={`absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full blur-3xl ${
-            p.accent === "amber"
-              ? "bg-orange-500/10"
-              : p.accent === "indigo"
-              ? "bg-blue-500/10"
-              : "bg-fuchsia-500/10"
-          }`}
+          className="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full blur-3xl bg-orange-500/10"
           style={{ animationDelay: "1.5s" }}
         />
       </div>
@@ -169,7 +160,7 @@ export default function Projects() {
           caption="things i've built / am building"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {PROJECTS.map((p, i) => (
             <ProjectCard key={p.name} p={p} index={i} />
           ))}

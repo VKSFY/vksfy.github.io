@@ -117,7 +117,7 @@ export default function Hero() {
           <span>brooklyn, ny</span>
           <span className="hidden sm:inline">
             currently:&nbsp;
-            <span className="text-amber-glow">writing a python game engine →</span>
+            <span className="text-amber-glow">between builds →</span>
           </span>
           <span>
             v.0<span className="text-amber-glow">4</span>.years

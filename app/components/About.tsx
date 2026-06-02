@@ -53,10 +53,17 @@ const TIMELINE: Commit[] = [
     tag: "open-source",
   },
   {
+    hash: "b8e2c41",
+    date: "2026",
+    title: "release: keel",
+    body: "Python game engine. Archetype ECS, ModernGL rendering, physics, hot reload. 451 tests, on PyPI as keelpy.",
+    tag: "open-source",
+  },
+  {
     hash: "HEAD",
     date: "now",
-    title: "wip: a python game engine",
-    body: "Pygame is showing its age and the alternatives are too niche, so I'm building one. Versatile, modern, mine.",
+    title: "wip: between builds",
+    body: "Just shipped keel. Scoping what's next.",
     tag: "current",
   },
 ];
@@ -120,7 +127,7 @@ export default function About() {
                 <div className="text-muted uppercase tracking-wider mb-1">
                   shipped
                 </div>
-                <div className="text-bone">4 oss · ∞ wip</div>
+                <div className="text-bone">5 oss · ∞ wip</div>
               </div>
             </div>
           </motion.div>
