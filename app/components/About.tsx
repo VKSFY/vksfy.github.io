@@ -60,10 +60,17 @@ const TIMELINE: Commit[] = [
     tag: "open-source",
   },
   {
+    hash: "e7a44d1",
+    date: "2026",
+    title: "release: netfault",
+    body: "TCP proxy that injects network faults — latency, drops, corruption, connection closes — for chaos testing. Async Rust, deterministic seeded fault injection.",
+    tag: "open-source",
+  },
+  {
     hash: "HEAD",
     date: "now",
     title: "wip: between builds",
-    body: "Just shipped keel. Scoping what's next.",
+    body: "Just shipped netfault. Scoping what's next.",
     tag: "current",
   },
 ];
@@ -85,7 +92,7 @@ export default function About() {
           >
             <p className="text-bone">
               I'm Oscar. I'm{" "}
-              <span className="text-amber-glow font-mono">16</span>, a 10th
+              <span className="text-amber-glow font-mono">16</span>, an 11th
               grader from Brooklyn, and I've been at this for about four years.
             </p>
             <p>
@@ -121,13 +128,13 @@ export default function About() {
                 <div className="text-muted uppercase tracking-wider mb-1">
                   status
                 </div>
-                <div className="text-amber-glow">10th grade</div>
+                <div className="text-amber-glow">11th grade</div>
               </div>
               <div>
                 <div className="text-muted uppercase tracking-wider mb-1">
                   shipped
                 </div>
-                <div className="text-bone">5 oss · ∞ wip</div>
+                <div className="text-bone">6 oss · ∞ wip</div>
               </div>
             </div>
           </motion.div>
