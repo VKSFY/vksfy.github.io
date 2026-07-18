@@ -14,6 +14,15 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    name: "netfault",
+    blurb:
+      "A TCP proxy that injects network faults — latency, packet loss, corruption, and connection drops — for testing how applications behave under adverse network conditions.",
+    why: "I built this mainly to work through TCP-level networking and async Rust end-to-end — sockets, backpressure, cancellation — rather than something I'd only read about. Injecting faults at the TCP level surfaces code paths that app-layer mocks miss: partial writes, half-open sockets, corruption at arbitrary byte boundaries.",
+    tech: ["Rust", "tokio", "async I/O", "chaos testing"],
+    status: "shipped",
+    href: "https://github.com/VKSFY/netfault",
+  },
+  {
     name: "keel",
     blurb:
       "A Python game engine built on archetype ECS, ModernGL, and GLFW. 2D + 3D rendering, physics, text, audio, hot reload, and an ImGui inspector and profiler.",
@@ -44,22 +53,16 @@ const PROJECTS: Project[] = [
     name: "multi-source-reconciliation-engine",
     blurb:
       "A backend engine for reconciling records across multiple data sources: match, merge, and reason about conflicts.",
-    why: "When two systems disagree about the same thing, someone has to decide who's right. This engine is the framework for that decision. Pluggable matchers, deterministic merge rules, and an audit trail you can trust at 3am.",
-    tech: ["Python", "asyncio", "Postgres", "pydantic", "Redis"],
+    why: "A friend was complaining about how much manual work goes into reconciling data across different systems that all describe the same customers but never agree on field names or formats. I'd been meaning to test my Python skills on something outside of tutorials, so I built the whole pipeline — including a hand-rolled OOXML reader/writer for .xlsx files (no openpyxl) and a from-scratch PDF byte-stream generator, since I wanted to understand the actual file formats instead of just calling a library.",
+    tech: ["Python", "rapidfuzz", "streamlit", "pdfplumber", "OOXML"],
     status: "shipped",
     href: "https://github.com/VKSFY/multi-source-reconciliation-engine",
   },
 ];
 
 const ALSO_BUILT = [
-  "saas dashboard prototype",
-  "discord automation bot",
-  "ts cli scaffolder",
-  "personal habit tracker",
-  "scrape→summarize pipeline",
-  "static site gen",
-  "gym log api",
-  "midi visualizer",
+  "entropy — terminal horror shell",
+  "GENESIS — PyTorch neuron simulation",
 ];
 
 function ProjectCard({ p, index }: { p: Project; index: number }) {
